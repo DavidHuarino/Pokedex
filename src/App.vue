@@ -1,22 +1,11 @@
 <template>
   <div id="app">
-    <Pokedex/>
-    <!--<div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>-->
     <router-view/>
-
   </div>
 </template>
 <script>
-import Pokedex from '@/components/Pokedex.vue'
 export default {
-  name: 'app',
-  components: {
-    Pokedex
-  }
+  name: 'app'
 }
 </script>
 <style>

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Information from '../views/Information.vue'
+import Pokemon from '../views/Pokemon.vue'
 
 
 Vue.use(VueRouter)
@@ -13,9 +13,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/information',
-    name: 'Information',
-    component: Information
+    path: '/pokemon/:id',
+    name: 'Pokemon',
+    component: Pokemon
   },
   {
     path: '/about',

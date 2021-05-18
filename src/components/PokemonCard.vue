@@ -4,6 +4,7 @@
             <img :src="`${currentUrlImage}${IdPokemon}.png`" alt="">
         </div>
         <h3>{{ namePokemon }}</h3>
+        <button><router-link :to="{name: 'Pokemon', params: {id: IdPokemon}}">show details</router-link></button>
     </div>
 </template>
 <script>
@@ -26,13 +27,20 @@ export default {
 </script>
 <style>
 .card_pokemon {
-    padding: 12px;
     border-radius: 10px;
     background: #F7D02C;
     cursor: pointer;
-    text-align: center;
     box-shadow: 3px 5px 8px 2px rgba(0, 0, 0, .4);
     transition: all 0.2s ease;
+}
+a {
+    text-decoration: none;
+}
+.box_img {
+    background-color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
 }
 .card_pokemon:hover {
     transform: translateY(-8px);

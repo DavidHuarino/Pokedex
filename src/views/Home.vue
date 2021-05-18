@@ -12,3 +12,9 @@ export default {
   }
 }
 </script>
+<style>
+body {
+  background-image: url('../assets/wallpaper/wallpaper.jpg');
+}
+
+</style>
