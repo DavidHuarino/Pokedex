@@ -14,10 +14,11 @@ export default {
 </script>
 <style>
     .container_profile {
-        height: 100vh;
-        background-color: #ff304f;
+        background: rebeccapurple;
         display: flex;
         align-items: center;
         justify-content: center;
+        height: 100vh;
+        max-width: 100%;
     }
 </style>

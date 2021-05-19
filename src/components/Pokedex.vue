@@ -19,7 +19,10 @@ export default {
     },
     components: {
         PokemonList
-    }
+    },
+    mounted() {
+        console.log(this.$store.state.pokemons);
+    },
 }
 </script>
 <style>

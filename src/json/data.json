@@ -1,0 +1,1282 @@
+[
+    {
+        "id": "001",
+        "name": "Bulbasaur",
+        "generation": "Generation I",
+        "description": "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
+        "types": ["Grass", "Poison"],
+        "resistant": ["Water", "Electric", "Grass", "Fighting", "Fairy"],
+        "weaknesses": ["Fire", "Ice", "Flying", "Psychic"],
+        "fast_attacks": [
+          {
+            "name": "Tackle",
+            "type": "Normal",
+            "damage": 12
+          },
+          {
+            "name": "Vine Whip",
+            "type": "Grass",
+            "damage": 7
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Power Whip",
+            "type": "Grass",
+            "damage": 70
+          },
+          {
+            "name": "Seed Bomb",
+            "type": "Grass",
+            "damage": 40
+          },
+          {
+            "name": "Sludge Bomb",
+            "type": "Poison",
+            "damage": 55
+          }
+        ],
+        "weight": {
+          "minimum": "6.04kg",
+          "maximum": "7.76kg"
+        },
+        "height": {
+          "minimum": "0.61m",
+          "maximum": "0.79m"
+        },
+        "buddy_distance": "3km (Medium)",
+        "base_stamina": "90",
+        "base_attack": "118",
+        "base_defense": "118",
+        "base_flee_rate": "10",
+        "next_evolution_req": {
+          "amount": 25,
+          "name": "Bulbasaur candies"
+        },
+        "next_evolution": [
+          {
+            "id": 2,
+            "name": "Ivysaur"
+          },
+          {
+            "id": 3,
+            "name": "Venusaur"
+          }
+        ],
+        "max_cp": 951,
+        "max_hp": 1071
+      },
+      {
+        "id": "002",
+        "name": "Ivysaur",
+        "generation": "Generation I",
+        "description": "There is a bud on this Pokémon's back. To support its weight, Ivysaur's legs and trunk grow thick and strong. If it starts spending more time lying in the sunlight, it's a sign that the bud will bloom into a large flower soon.",
+        "types": ["Grass", "Poison"],
+        "resistant": ["Water", "Electric", "Grass", "Fighting", "Fairy"],
+        "weaknesses": ["Fire", "Ice", "Flying", "Psychic"],
+        "fast_attacks": [
+          {
+            "name": "Razor Leaf",
+            "type": "Grass",
+            "damage": 15
+          },
+          {
+            "name": "Vine Whip",
+            "type": "Grass",
+            "damage": 7
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Power Whip",
+            "type": "Grass",
+            "damage": 70
+          },
+          {
+            "name": "Sludge Bomb",
+            "type": "Poison",
+            "damage": 55
+          },
+          {
+            "name": "Solar Beam",
+            "type": "Grass",
+            "damage": 120
+          }
+        ],
+        "weight": {
+          "minimum": "11.38kg",
+          "maximum": "14.63kg"
+        },
+        "height": {
+          "minimum": "0.88m",
+          "maximum": "1.13m"
+        },
+        "buddy_distance": "3km (Big)",
+        "base_stamina": "120",
+        "base_attack": "151",
+        "base_defense": "151",
+        "base_flee_rate": "7",
+        "previous_evolution": [
+          {
+            "id": 1,
+            "name": "Bulbasaur"
+          }
+        ],
+        "next_evolution_req": {
+          "amount": 100,
+          "name": "Bulbasaur candies"
+        },
+        "next_evolution": [
+          {
+            "id": 3,
+            "name": "Venusaur"
+          }
+        ],
+        "max_cp": 1483,
+        "max_hp": 1632
+      },
+      {
+        "id": "003",
+        "name": "Venusaur",
+        "generation": "Generation I",
+        "description": "There is a large flower on Venusaur's back. The flower is said to take on vivid colors if it gets plenty of nutrition and sunlight. The flower's aroma soothes the emotions of people.",
+        "types": ["Grass", "Poison"],
+        "resistant": ["Water", "Electric", "Grass", "Fighting", "Fairy"],
+        "weaknesses": ["Fire", "Ice", "Flying", "Psychic"],
+        "fast_attacks": [
+          {
+            "name": "Razor Leaf",
+            "type": "Grass",
+            "damage": 15
+          },
+          {
+            "name": "Vine Whip",
+            "type": "Grass",
+            "damage": 7
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Petal Blizzard",
+            "type": "Grass",
+            "damage": 65
+          },
+          {
+            "name": "Sludge Bomb",
+            "type": "Poison",
+            "damage": 55
+          },
+          {
+            "name": "Solar Beam",
+            "type": "Grass",
+            "damage": 120
+          }
+        ],
+        "weight": {
+          "minimum": "87.5kg",
+          "maximum": "112.5kg"
+        },
+        "height": {
+          "minimum": "1.75m",
+          "maximum": "2.25m"
+        },
+        "buddy_distance": "3km (Big)",
+        "base_stamina": "160",
+        "base_attack": "198",
+        "base_defense": "198",
+        "base_flee_rate": "5",
+        "previous_evolution": [
+          {
+            "id": 1,
+            "name": "Bulbasaur"
+          },
+          {
+            "id": 2,
+            "name": "Ivysaur"
+          }
+        ],
+        "max_cp": 2392,
+        "max_hp": 2580
+      },
+      {
+        "id": "004",
+        "name": "Charmander",
+        "generation": "Generation I",
+        "description": "The flame that burns at the tip of its tail is an indication of its emotions. The flame wavers when Charmander is enjoying itself. If the Pokémon becomes enraged, the flame burns fiercely.",
+        "types": ["Fire"],
+        "resistant": ["Fire", "Grass", "Ice", "Bug", "Steel", "Fairy"],
+        "weaknesses": ["Water", "Ground", "Rock"],
+        "fast_attacks": [
+          {
+            "name": "Ember",
+            "type": "Fire",
+            "damage": 10
+          },
+          {
+            "name": "Scratch",
+            "type": "Normal",
+            "damage": 6
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Flame Burst",
+            "type": "Fire",
+            "damage": 30
+          },
+          {
+            "name": "Flame Charge",
+            "type": "Fire",
+            "damage": 25
+          },
+          {
+            "name": "Flamethrower",
+            "type": "Fire",
+            "damage": 55
+          }
+        ],
+        "weight": {
+          "minimum": "7.44kg",
+          "maximum": "9.56kg"
+        },
+        "height": {
+          "minimum": "0.53m",
+          "maximum": "0.68m"
+        },
+        "buddy_distance": "3km (Medium)",
+        "base_stamina": "78",
+        "base_attack": "116",
+        "base_defense": "96",
+        "base_flee_rate": "10",
+        "next_evolution_req": {
+          "amount": 25,
+          "name": "Charmander candies"
+        },
+        "next_evolution": [
+          {
+            "id": 5,
+            "name": "Charmeleon"
+          },
+          {
+            "id": 6,
+            "name": "Charizard"
+          }
+        ],
+        "max_cp": 841,
+        "max_hp": 955
+      },
+      {
+        "id": "005",
+        "name": "Charmeleon",
+        "generation": "Generation I",
+        "description": "Charmeleon mercilessly destroys its foes using its sharp claws. If it encounters a strong foe, it turns aggressive. In this excited state, the flame at the tip of its tail flares with a bluish white color.",
+        "types": ["Fire"],
+        "resistant": ["Fire", "Grass", "Ice", "Bug", "Steel", "Fairy"],
+        "weaknesses": ["Water", "Ground", "Rock"],
+        "fast_attacks": [
+          {
+            "name": "Ember",
+            "type": "Fire",
+            "damage": 10
+          },
+          {
+            "name": "Scratch",
+            "type": "Normal",
+            "damage": 6
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Fire Punch",
+            "type": "Fire",
+            "damage": 40
+          },
+          {
+            "name": "Flame Burst",
+            "type": "Fire",
+            "damage": 30
+          },
+          {
+            "name": "Flamethrower",
+            "type": "Fire",
+            "damage": 55
+          }
+        ],
+        "weight": {
+          "minimum": "16.63kg",
+          "maximum": "21.38kg"
+        },
+        "height": {
+          "minimum": "0.96m",
+          "maximum": "1.24m"
+        },
+        "buddy_distance": "3km (Medium)",
+        "base_stamina": "116",
+        "base_attack": "158",
+        "base_defense": "129",
+        "base_flee_rate": "7",
+        "previous_evolution": [
+          {
+            "id": 4,
+            "name": "Charmander"
+          }
+        ],
+        "next_evolution_req": {
+          "amount": 100,
+          "name": "Charmander candies"
+        },
+        "next_evolution": [
+          {
+            "id": "006",
+            "name": "Charizard"
+          }
+        ],
+        "max_cp": 1411,
+        "max_hp": 1557
+      },
+      {
+        "id": "006",
+        "name": "Charizard",
+        "generation": "Generation I",
+        "description": "Charizard flies around the sky in search of powerful opponents. It breathes fire of such great heat that it melts anything. However, it never turns its fiery breath on any opponent weaker than itself.",
+        "types": ["Fire", "Flying"],
+        "resistant": ["Fire", "Grass", "Fighting", "Bug", "Steel", "Fairy"],
+        "weaknesses": ["Water", "Electric", "Rock"],
+        "fast_attacks": [
+          {
+            "name": "Ember",
+            "type": "Fire",
+            "damage": 10
+          },
+          {
+            "name": "Wing Attack",
+            "type": "Flying",
+            "damage": 9
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Dragon Claw",
+            "type": "Dragon",
+            "damage": 35
+          },
+          {
+            "name": "Fire Blast",
+            "type": "Fire",
+            "damage": 100
+          },
+          {
+            "name": "Flamethrower",
+            "type": "Fire",
+            "damage": 55
+          }
+        ],
+        "weight": {
+          "minimum": "79.19kg",
+          "maximum": "101.81kg"
+        },
+        "height": {
+          "minimum": "1.49m",
+          "maximum": "1.91m"
+        },
+        "buddy_distance": "3km (Big)",
+        "base_stamina": "156",
+        "base_attack": "223",
+        "base_defense": "176",
+        "base_flee_rate": "5",
+        "previous_evolution": [
+          {
+            "id": "004",
+            "name": "Charmander"
+          },
+          {
+            "id": "005",
+            "name": "Charmeleon"
+          }
+        ],
+        "max_cp": 2413,
+        "max_hp": 2602
+      },
+      {
+        "id": "007",
+        "name": "Squirtle",
+        "generation": "Generation I",
+        "description": "Squirtle's shell is not merely used for protection. The shell's rounded shape and the grooves on its surface help minimize resistance in water, enabling this Pokémon to swim at high speeds.",
+        "types": ["Water"],
+        "resistant": ["Fire", "Water", "Ice", "Steel"],
+        "weaknesses": ["Electric", "Grass"],
+        "fast_attacks": [
+          {
+            "name": "Bubble",
+            "type": "Water",
+            "damage": 25
+          },
+          {
+            "name": "Tackle",
+            "type": "Normal",
+            "damage": 12
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Aqua Jet",
+            "type": "Water",
+            "damage": 25
+          },
+          {
+            "name": "Aqua Tail",
+            "type": "Water",
+            "damage": 45
+          },
+          {
+            "name": "Water Pulse",
+            "type": "Water",
+            "damage": 35
+          }
+        ],
+        "weight": {
+          "minimum": "7.88kg",
+          "maximum": "10.13kg"
+        },
+        "height": {
+          "minimum": "0.44m",
+          "maximum": "0.56m"
+        },
+        "buddy_distance": "3km (Medium)",
+        "base_stamina": "88",
+        "base_attack": "94",
+        "base_defense": "122",
+        "base_flee_rate": "10",
+        "next_evolution_req": {
+          "amount": 25,
+          "name": "Squirtle candies"
+        },
+        "next_evolution": [
+          {
+            "id": 8,
+            "name": "Wartortle"
+          },
+          {
+            "id": 9,
+            "name": "Blastoise"
+          }
+        ],
+        "max_cp": 891,
+        "max_hp": 1008
+      },
+      {
+        "id": "008",
+        "name": "Wartortle",
+        "generation": "Generation I",
+        "description": "Its tail is large and covered with a rich, thick fur. The tail becomes increasingly deeper in color as Wartortle ages. The scratches on its shell are evidence of this Pokémon's toughness as a battler.",
+        "types": ["Water"],
+        "resistant": ["Fire", "Water", "Ice", "Steel"],
+        "weaknesses": ["Electric", "Grass"],
+        "fast_attacks": [
+          {
+            "name": "Bite",
+            "type": "Dark",
+            "damage": 6
+          },
+          {
+            "name": "Water Gun",
+            "type": "Water",
+            "damage": 6
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Aqua Jet",
+            "type": "Water",
+            "damage": 25
+          },
+          {
+            "name": "Hydro Pump",
+            "type": "Water",
+            "damage": 90
+          },
+          {
+            "name": "Ice Beam",
+            "type": "Ice",
+            "damage": 65
+          }
+        ],
+        "weight": {
+          "minimum": "19.69kg",
+          "maximum": "25.31kg"
+        },
+        "height": {
+          "minimum": "0.88m",
+          "maximum": "1.13m"
+        },
+        "buddy_distance": "3km (Medium)",
+        "base_stamina": "118",
+        "base_attack": "126",
+        "base_defense": "155",
+        "base_flee_rate": "7",
+        "previous_evolution": [
+          {
+            "id": 7,
+            "name": "Squirtle"
+          }
+        ],
+        "next_evolution_req": {
+          "amount": 100,
+          "name": "Squirtle candies"
+        },
+        "next_evolution": [
+          {
+            "id": 9,
+            "name": "Blastoise"
+          }
+        ],
+        "max_cp": 1435,
+        "max_hp": 1582
+      },
+      {
+        "id": "009",
+        "name": "Blastoise",
+        "generation": "Generation I",
+        "description": "Blastoise has water spouts that protrude from its shell. The water spouts are very accurate. They can shoot bullets of water with enough accuracy to strike empty cans from a distance of over 160 feet.",
+        "types": ["Water"],
+        "resistant": ["Fire", "Water", "Ice", "Steel"],
+        "weaknesses": ["Electric", "Grass"],
+        "fast_attacks": [
+          {
+            "name": "Bite",
+            "type": "Dark",
+            "damage": 6
+          },
+          {
+            "name": "Water Gun",
+            "type": "Water",
+            "damage": 6
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Flash Cannon",
+            "type": "Steel",
+            "damage": 60
+          },
+          {
+            "name": "Hydro Pump",
+            "type": "Water",
+            "damage": 90
+          },
+          {
+            "name": "Ice Beam",
+            "type": "Ice",
+            "damage": 65
+          }
+        ],
+        "weight": {
+          "minimum": "74.81kg",
+          "maximum": "96.19kg"
+        },
+        "height": {
+          "minimum": "1.4m",
+          "maximum": "1.8m"
+        },
+        "buddy_distance": "3km (Big)",
+        "base_stamina": "158",
+        "base_attack": "171",
+        "base_defense": "210",
+        "base_flee_rate": "5",
+        "previous_evolution": [
+          {
+            "id": 7,
+            "name": "Squirtle"
+          },
+          {
+            "id": 8,
+            "name": "Wartortle"
+          }
+        ],
+        "max_cp": 2355,
+        "max_hp": 2542
+      },
+      {
+        "id": "010",
+        "name": "Caterpie",
+        "generation": "Generation I",
+        "description": "Caterpie has a voracious appetite. It can devour leaves bigger than its body right before your eyes. From its antenna, this Pokémon releases a terrifically strong odor.",
+        "types": ["Bug"],
+        "resistant": ["Grass", "Fighting", "Ground"],
+        "weaknesses": ["Fire", "Flying", "Rock"],
+        "fast_attacks": [
+          {
+            "name": "Bug Bite",
+            "type": "Bug",
+            "damage": 5
+          },
+          {
+            "name": "Tackle",
+            "type": "Normal",
+            "damage": 12
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Struggle",
+            "type": "Normal",
+            "damage": 15
+          }
+        ],
+        "weight": {
+          "minimum": "2.54kg",
+          "maximum": "3.26kg"
+        },
+        "height": {
+          "minimum": "0.26m",
+          "maximum": "0.34m"
+        },
+        "buddy_distance": "1km (Shoulder)",
+        "base_stamina": "90",
+        "base_attack": "55",
+        "base_defense": "62",
+        "base_flee_rate": "20",
+        "next_evolution_req": {
+          "amount": 12,
+          "name": "Caterpie candies"
+        },
+        "next_evolution": [
+          {
+            "id": 11,
+            "name": "Metapod"
+          },
+          {
+            "id": 12,
+            "name": "Butterfree"
+          }
+        ],
+        "max_cp": 367,
+        "max_hp": 443
+      },
+      {
+        "id": "011",
+        "name": "Metapod",
+        "generation": "Generation I",
+        "description": "The shell covering this Pokémon’s body is as hard as an iron slab. Metapod does not move very much. It stays still because it is preparing its soft innards for evolution inside the hard shell.",
+        "types": ["Bug"],
+        "resistant": ["Grass", "Fighting", "Ground"],
+        "weaknesses": ["Fire", "Flying", "Rock"],
+        "fast_attacks": [
+          {
+            "name": "Bug Bite",
+            "type": "Bug",
+            "damage": 5
+          },
+          {
+            "name": "Tackle",
+            "type": "Normal",
+            "damage": 12
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Struggle",
+            "type": "Normal",
+            "damage": 15
+          }
+        ],
+        "weight": {
+          "minimum": "8.66kg",
+          "maximum": "11.14kg"
+        },
+        "height": {
+          "minimum": "0.61m",
+          "maximum": "0.79m"
+        },
+        "buddy_distance": "1km (Medium)",
+        "base_stamina": "100",
+        "base_attack": "45",
+        "base_defense": "94",
+        "base_flee_rate": "9",
+        "previous_evolution": [
+          {
+            "id": 10,
+            "name": "Caterpie"
+          }
+        ],
+        "next_evolution_req": {
+          "amount": 50,
+          "name": "Caterpie candies"
+        },
+        "next_evolution": [
+          {
+            "id": 12,
+            "name": "Butterfree"
+          }
+        ],
+        "max_cp": 397,
+        "max_hp": 477
+      },
+      {
+        "id": "012",
+        "name": "Butterfree",
+        "generation": "Generation I",
+        "description": "Butterfree has a superior ability to search for delicious honey from flowers. It can even search out, extract, and carry honey from flowers that are blooming over six miles from its nest.",
+        "types": ["Bug", "Flying"],
+        "resistant": ["Grass", "Fighting", "Ground", "Bug"],
+        "weaknesses": ["Fire", "Electric", "Ice", "Flying", "Rock"],
+        "fast_attacks": [
+          {
+            "name": "Bug Bite",
+            "type": "Bug",
+            "damage": 5
+          },
+          {
+            "name": "Confusion",
+            "type": "Psychic",
+            "damage": 15
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Bug buzz",
+            "type": "Bug",
+            "damage": 75
+          },
+          {
+            "name": "Psychic",
+            "type": "Psychic",
+            "damage": 55
+          },
+          {
+            "name": "Signal Beam",
+            "type": "Bug",
+            "damage": 45
+          }
+        ],
+        "weight": {
+          "minimum": "28kg",
+          "maximum": "36kg"
+        },
+        "height": {
+          "minimum": "0.96m",
+          "maximum": "1.24m"
+        },
+        "buddy_distance": "1km (flying)",
+        "base_stamina": "120",
+        "base_attack": "167",
+        "base_defense": "151",
+        "base_flee_rate": "6",
+        "previous_evolution": [
+          {
+            "id": 10,
+            "name": "Caterpie"
+          },
+          {
+            "id": 11,
+            "name": "Metapod"
+          }
+        ],
+        "max_cp": 1315,
+        "max_hp": 1454
+      },
+      {
+        "id": "013",
+        "name": "Weedle",
+        "generation": "Generation I",
+        "description": "Weedle has an extremely acute sense of smell. It is capable of distinguishing its favorite kinds of leaves from those it dislikes just by sniffing with its big red proboscis (nose).",
+        "types": ["Bug", "Poison"],
+        "resistant": ["Grass", "Fighting", "Poison", "Bug", "Fairy"],
+        "weaknesses": ["Fire", "Flying", "Psychic", "Rock"],
+        "fast_attacks": [
+          {
+            "name": "Bug Bite",
+            "type": "Bug",
+            "damage": 5
+          },
+          {
+            "name": "Poison Sting",
+            "type": "Poison",
+            "damage": 6
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Struggle",
+            "type": "Normal",
+            "damage": 15
+          }
+        ],
+        "weight": {
+          "minimum": "2.8kg",
+          "maximum": "3.6kg"
+        },
+        "height": {
+          "minimum": "0.26m",
+          "maximum": "0.34m"
+        },
+        "buddy_distance": "1km (Shoulder)",
+        "base_stamina": "80",
+        "base_attack": "63",
+        "base_defense": "55",
+        "base_flee_rate": "20",
+        "next_evolution_req": {
+          "amount": 12,
+          "name": "Weedle candies"
+        },
+        "next_evolution": [
+          {
+            "id": 14,
+            "name": "Kakuna"
+          },
+          {
+            "id": 15,
+            "name": "Beedrill"
+          }
+        ],
+        "max_cp": 372,
+        "max_hp": 449
+      },
+      {
+        "id": "014",
+        "name": "Kakuna",
+        "generation": "Generation I",
+        "description": "Kakuna remains virtually immobile as it clings to a tree. However, on the inside, it is extremely busy as it prepares for its coming evolution. This is evident from how hot the shell becomes to the touch.",
+        "types": ["Bug", "Poison"],
+        "resistant": ["Grass", "Fighting", "Poison", "Bug", "Fairy"],
+        "weaknesses": ["Fire", "Flying", "Psychic", "Rock"],
+        "fast_attacks": [
+          {
+            "name": "Bug Bite",
+            "type": "Bug",
+            "damage": 5
+          },
+          {
+            "name": "Poison Sting",
+            "type": "Poison",
+            "damage": 6
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Struggle",
+            "type": "Normal",
+            "damage": 15
+          }
+        ],
+        "weight": {
+          "minimum": "8.75kg",
+          "maximum": "11.25kg"
+        },
+        "height": {
+          "minimum": "0.53m",
+          "maximum": "0.68m"
+        },
+        "buddy_distance": "1km (Medium)",
+        "base_stamina": "90",
+        "base_attack": "46",
+        "base_defense": "86",
+        "base_flee_rate": "9",
+        "previous_evolution": [
+          {
+            "id": 13,
+            "name": "Weedle"
+          }
+        ],
+        "next_evolution_req": {
+          "amount": 50,
+          "name": "Weedle candies"
+        },
+        "next_evolution": [
+          {
+            "id": 15,
+            "name": "Beedrill"
+          }
+        ],
+        "max_cp": 405,
+        "max_hp": 485
+      },
+      {
+        "id": "015",
+        "name": "Beedrill",
+        "generation": "Generation I",
+        "description": "Beedrill is extremely territorial. No one should ever approach its nest—this is for their own safety. If angered, they will attack in a furious swarm.",
+        "types": ["Bug", "Poison"],
+        "resistant": ["Grass", "Fighting", "Poison", "Bug", "Fairy"],
+        "weaknesses": ["Fire", "Flying", "Psychic", "Rock"],
+        "fast_attacks": [
+          {
+            "name": "Bug Bite",
+            "type": "Bug",
+            "damage": 5
+          },
+          {
+            "name": "Poison Jab",
+            "type": "Poison",
+            "damage": 12
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Aerial Ace",
+            "type": "Flying",
+            "damage": 30
+          },
+          {
+            "name": "Sludge Bomb",
+            "type": "Poison",
+            "damage": 55
+          },
+          {
+            "name": "X Scissor",
+            "type": "Bug",
+            "damage": 35
+          }
+        ],
+        "weight": {
+          "minimum": "25.81kg",
+          "maximum": "33.19kg"
+        },
+        "height": {
+          "minimum": "0.88m",
+          "maximum": "1.13m"
+        },
+        "buddy_distance": "1km (flying)",
+        "base_stamina": "130",
+        "base_attack": "169",
+        "base_defense": "150",
+        "base_flee_rate": "6",
+        "previous_evolution": [
+          {
+            "id": 13,
+            "name": "Weedle"
+          },
+          {
+            "id": 14,
+            "name": "Kakuna"
+          }
+        ],
+        "max_cp": 1301,
+        "max_hp": 1439
+      },
+      {
+        "id": "016",
+        "name": "Pidgey",
+        "generation": "Generation I",
+        "description": "Pidgey has an extremely sharp sense of direction. It is capable of unerringly returning home to its nest, however far it may be removed from its familiar surroundings.",
+        "types": ["Normal", "Flying"],
+        "resistant": ["Grass", "Ground", "Bug", "Ghost"],
+        "weaknesses": ["Electric", "Ice", "Rock"],
+        "fast_attacks": [
+          {
+            "name": "Quick Attack",
+            "type": "Normal",
+            "damage": 10
+          },
+          {
+            "name": "Tackle",
+            "type": "Normal",
+            "damage": 12
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Aerial Ace",
+            "type": "Flying",
+            "damage": 30
+          },
+          {
+            "name": "Air Cutter",
+            "type": "Flying",
+            "damage": 30
+          },
+          {
+            "name": "Twister",
+            "type": "Dragon",
+            "damage": 25
+          }
+        ],
+        "weight": {
+          "minimum": "1.57kg",
+          "maximum": "2.02kg"
+        },
+        "height": {
+          "minimum": "0.26m",
+          "maximum": "0.34m"
+        },
+        "buddy_distance": "1km (Shoulder)",
+        "base_stamina": "80",
+        "base_attack": "85",
+        "base_defense": "76",
+        "base_flee_rate": "20",
+        "next_evolution_req": {
+          "amount": 12,
+          "name": "Pidgey candies"
+        },
+        "next_evolution": [
+          {
+            "id": 17,
+            "name": "Pidgeotto"
+          },
+          {
+            "id": 18,
+            "name": "Pidgeot"
+          }
+        ],
+        "max_cp": 585,
+        "max_hp": 679
+      },
+      {
+        "id": "017",
+        "name": "Pidgeot",
+        "generation": "Generation I",
+        "description": "It spreads its gorgeous wings widely to intimidate enemies. It races through the skies at Mach-2 speed. This Pokémon has a dazzling plumage of beautifully glossy feathers.",
+        "types": ["Normal", "Flying"],
+        "resistant": ["Grass", "Ground", "Bug", "Ghost"],
+        "weaknesses": ["Electric", "Ice", "Rock"],
+        "fast_attacks": [
+          {
+            "name": "Steel Wing",
+            "type": "Steel",
+            "damage": 15
+          },
+          {
+            "name": "Wing Attack",
+            "type": "Flying",
+            "damage": 9
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Aerial Ace",
+            "type": "Flying",
+            "damage": 30
+          },
+          {
+            "name": "Air Cutter",
+            "type": "Flying",
+            "damage": 30
+          },
+          {
+            "name": "Twister",
+            "type": "Dragon",
+            "damage": 25
+          }
+        ],
+        "weight": {
+          "minimum": "26.25kg",
+          "maximum": "33.75kg"
+        },
+        "height": {
+          "minimum": "0.96m",
+          "maximum": "1.24m"
+        },
+        "buddy_distance": "1km (flying)",
+        "base_stamina": "126",
+        "base_attack": "117",
+        "base_defense": "108",
+        "base_flee_rate": "9",
+        "previous_evolution": [
+          {
+            "id": 16,
+            "name": "Pidgey"
+          }
+        ],
+        "next_evolution_req": {
+          "amount": 50,
+          "name": "Pidgey candies"
+        },
+        "next_evolution": [
+          {
+            "id": 18,
+            "name": "Pidgeotto"
+          }
+        ],
+        "max_cp": 1096,
+        "max_hp": 1223
+      },
+      {
+        "id": "018",
+        "name": "Pidgeotto",
+        "generation": "Generation I",
+        "description": "Pidgeotto claims a large area as its own territory. This Pokémon flies around, patrolling its living space. If its territory is violated, it shows no mercy in thoroughly punishing the foe with its sharp claws.",
+        "types": ["Normal", "Flying"],
+        "resistant": ["Grass", "Ground", "Bug", "Ghost"],
+        "weaknesses": ["Electric", "Ice", "Rock"],
+        "fast_attacks": [
+          {
+            "name": "Steel Wing",
+            "type": "Steel",
+            "damage": 15
+          },
+          {
+            "name": "Wing Attack",
+            "type": "Flying",
+            "damage": 9
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Aerial Ace",
+            "type": "Flying",
+            "damage": 30
+          },
+          {
+            "name": "Air Cutter",
+            "type": "Flying",
+            "damage": 30
+          },
+          {
+            "name": "Twister",
+            "type": "Dragon",
+            "damage": 25
+          }
+        ],
+        "weight": {
+          "minimum": "26.25kg",
+          "maximum": "33.75kg"
+        },
+        "height": {
+          "minimum": "0.96m",
+          "maximum": "1.24m"
+        },
+        "buddy_distance": "1km (flying)",
+        "base_stamina": "126",
+        "base_attack": "117",
+        "base_defense": "108",
+        "base_flee_rate": "9",
+        "previous_evolution": [
+          {
+            "id": 16,
+            "name": "Pidgey"
+          },
+          {
+            "id": 17,
+            "name": "Pidgeot"
+          }
+        ],
+        "next_evolution_req": {
+          "amount": 50,
+          "name": "Pidgey candies"
+        },
+        "max_cp": 1096,
+        "max_hp": 1223
+      },
+      {
+        "id": "019",
+        "name": "Rattata",
+        "generation": "Generation I",
+        "description": "Rattata is cautious in the extreme. Even while it is asleep, it constantly listens by moving its ears around. It is not picky about where it lives—it will make its nest anywhere.",
+        "types": ["Normal"],
+        "resistant": ["Ghost"],
+        "weaknesses": ["Fighting"],
+        "fast_attacks": [
+          {
+            "name": "Quick Attack",
+            "type": "Normal",
+            "damage": 10
+          },
+          {
+            "name": "Tackle",
+            "type": "Normal",
+            "damage": 12
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Body Slam",
+            "type": "Normal",
+            "damage": 40
+          },
+          {
+            "name": "Dig",
+            "type": "Ground",
+            "damage": 70
+          },
+          {
+            "name": "Hyper Fang",
+            "type": "Normal",
+            "damage": 35
+          }
+        ],
+        "weight": {
+          "minimum": "3.06kg",
+          "maximum": "3.94kg"
+        },
+        "height": {
+          "minimum": "0.26m",
+          "maximum": "0.34m"
+        },
+        "buddy_distance": "1km (Medium)",
+        "base_stamina": "60",
+        "base_attack": "103",
+        "base_defense": "70",
+        "base_flee_rate": "20",
+        "next_evolution_req": {
+          "amount": 25,
+          "name": "Rattata candies"
+        },
+        "next_evolution": [
+          {
+            "id": 20,
+            "name": "Raticate"
+          }
+        ],
+        "max_cp": 493,
+        "max_hp": 581
+      },
+      {
+        "id": "020",
+        "name": "Raticate",
+        "generation": "Generation I",
+        "description": "Raticate’s sturdy fangs grow steadily. To keep them ground down, it gnaws on rocks and logs. It may even chew on the walls of houses.",
+        "types": ["Normal"],
+        "resistant": ["Ghost"],
+        "weaknesses": ["Fighting"],
+        "fast_attacks": [
+          {
+            "name": "Bite",
+            "type": "Dark",
+            "damage": 6
+          },
+          {
+            "name": "Quick Attack",
+            "type": "Normal",
+            "damage": 10
+          }
+        ],
+        "special_attacks": [
+          {
+            "name": "Dig",
+            "type": "Ground",
+            "damage": 70
+          },
+          {
+            "name": "Hyper Beam",
+            "type": "Normal",
+            "damage": 120
+          },
+          {
+            "name": "Hyper Fang",
+            "type": "Normal",
+            "damage": 35
+          }
+        ],
+        "weight": {
+          "minimum": "16.19kg",
+          "maximum": "20.81kg"
+        },
+        "height": {
+          "minimum": "0.61m",
+          "maximum": "0.79m"
+        },
+        "buddy_distance": "1km (Medium)",
+        "base_stamina": "110",
+        "base_attack": "161",
+        "base_defense": "144",
+        "base_flee_rate": "7",
+        "previous_evolution": [
+          {
+            "id": 19,
+            "name": "Rattata"
+          }
+        ],
+        "max_cp": 1304,
+        "max_hp": 1444
+      }
+]

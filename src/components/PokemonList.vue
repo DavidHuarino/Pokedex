@@ -49,7 +49,7 @@ export default {
 <style>
 .cards_pokemons {
     display: grid;
-    /*grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
+    /*grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/   
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(200px, auto);
     gap: 30px;

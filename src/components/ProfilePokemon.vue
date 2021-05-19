@@ -1,17 +1,18 @@
 <template>
-    <div class="wrapper">
-        <h1>Bullbasur</h1>
-        <div class="box_pokemon_profile">
-            <img :src="`https://pokeres.bastionbot.org/images/pokemon/${this.$route.params.id}.png`" alt="">
-        </div>
-        <div class="details">
-            
-            <div class="types_pokemon">
-                <div class="green">
-                    GRASS
-                </div>
-                <div class="blue">
-                    POISON
+    <div class="main_profile">
+        <h3>{{ this.$route.params.name }}</h3>
+        <div class="wrapper">
+            <div class="box_pokemon_avatar">
+                <img :src="`https://pokeres.bastionbot.org/images/pokemon/${this.$route.params.id}.png`" alt="">
+            </div>
+            <div class="details">
+                <div class="types_pokemon">
+                    <div class="green">
+                        GRASS
+                    </div>
+                    <div class="blue">
+                        POISON
+                    </div>
                 </div>
             </div>
         </div>
@@ -21,38 +22,31 @@
 export default {
     name: 'ProfilePokemon',
     mounted() {
-        console.log(this.$route, "gaaaa");
+        console.log(this.$store.state.pokemons);
     },
 }
 </script>
 <style>
-    .wrapper {
-        width: 100%;
-        max-width: 600px;
+    .main_profile {
         background: #fff;
-        display: flex;
         border-radius: 10px;
+        overflow: hidden;
+        max-width: 700px;
+        width: 90%;
+
     }
-    .box_pokemon_profile {
-        width: 30%;
+    .main_profile .wrapper {
+        display: flex;
     }
-    .box_pokemon_profile img {
+    .main_profile .wrapper .box_pokemon_avatar {
+        padding: 15px;
+        background: #e4e8f0;
+        width: 50%;
+    }
+    .main_profile .wrapper .box_pokemon_avatar img {
         width: 100%;
     }
-    .types_pokemon {
-        display: flex;
-        justify-content: center;
-        color: #fff;
-    }
-    .green {
-        background: green;
-        padding: 6px;
-    }
-    .blue {
-        background-color: blue;
-        padding: 6px;
-    }
-    .details {
-        width: 70%;
+    .main_profile .wrapper .details {
+        width: 50%;
     }
 </style>
