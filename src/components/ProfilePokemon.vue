@@ -21,9 +21,6 @@
 <script>
 export default {
     name: 'ProfilePokemon',
-    mounted() {
-        console.log(this.$store.state.pokemons);
-    },
 }
 </script>
 <style>

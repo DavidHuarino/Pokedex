@@ -1,11 +1,12 @@
 <template>
     <div class="cards_pokemons">
         <PokemonCard
-            v-for="pokemonObject in pokemons"
-            :key="`poke-${pokemonObject.id}`"
-            :id="pokemonObject.id"
-            :name="pokemonObject.name"
+            v-for="pokeObject in getPokemonsFiltered"
+            :key="stringIdToInteger(pokeObject.id)"
+            :id="stringIdToInteger(pokeObject.id)"
+            :name="pokeObject.name"
             :urlImages="urlImages"
+            :types="pokeObject.types"
         />
     </div>
 </template>
@@ -15,33 +16,20 @@ export default {
     name: 'PokemonList',
     data() {
         return {
-            currentUrl: '',
-            pokemons: [],
             urlImages: 'https://pokeres.bastionbot.org/images/pokemon/'
         }
-    },
-    props: {
-        urlApi: String
     },
     components: {
         PokemonCard
     },
-    created() {
-        this.currentUrl = this.urlApi;
-        this.setPokemons();
-    },
     methods: {
-        async setPokemons() {
-            const res = await fetch(this.currentUrl);
-            const data = await res.json();
-            this.setDataObjects(data.results);
-        },
-        async setDataObjects(results) {
-            results.forEach(async pokeData => {
-                const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeData.name}`);
-                const data = await res.json();
-                this.pokemons.push(data);
-            });
+        stringIdToInteger(id) {
+            return parseInt(id);
+        }
+    },
+    computed: {
+        getPokemonsFiltered() {
+            return this.$store.getters.pokemonsFiltered;
         }
     }
 }
