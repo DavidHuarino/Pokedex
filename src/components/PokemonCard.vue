@@ -48,11 +48,14 @@ export default {
         border-top-right-radius: 10px;
         margin-bottom: 5px;
     }
+    .box_img img {
+        padding: 5px;
+    }
     .card_pokemon:hover {
         transform: translateY(-8px);
     }
     h3 {
-        font-weight: 700;
+        font-weight: 400;
         margin-bottom: 5px;
     }
     .card_pokemon img {
