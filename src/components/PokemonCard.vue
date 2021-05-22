@@ -1,7 +1,7 @@
 <template>
     <div class="card_pokemon">
         <div class="box_img">
-            <router-link :to="{name: 'Pokemon', params: {id: IdPokemon, name: namePokemon}}">
+            <router-link :to="{name: 'Pokemon', params: {name: namePokemon}}">
                 <img :src="`${currentUrlImage}${IdPokemon}.png`" alt="">
             </router-link>
         </div>
@@ -35,6 +35,7 @@ export default {
 }
 </script>
 <style scoped>
+    @import '../assets/styles/pokemon_types.css';
     .card_pokemon {
         border-radius: 10px;
         background: #fff;
@@ -70,78 +71,6 @@ export default {
     .type_pokemon .type_name {
         font-size: 13px;
         padding: 4px;
-    }
-    /* types colors */
-    .bug {
-    background-color: #abb642;
-    }
-
-    .dark {
-    background-color: #6c584a;
-    }
-
-    .dragon {
-    background-color: #6843ef;
-    }
-
-    .electric {
-    background-color: #f2d054;
-    }
-
-    .fairy {
-    background-color: #e29dac;
-    }
-
-    .flying {
-    background-color: #a493ea;
-    }
-
-    .fighting {
-    background-color: #b13c31;
-    }
-
-    .fire {
-    background-color: #e28544;
-    }
-
-    .ghost {
-    background-color: #6c5a94;
-    }
-
-    .grass {
-    background-color: #8bc560;
-    }
-
-    .ground {
-    background-color: #dbc074;
-    }
-
-    .ice {
-    background-color: #a6d6d7;
-    }
-
-    .normal {
-    background-color: #a8a77d;
-    }
-
-    .poison {
-    background-color: #94489b;
-    }
-
-    .psychic {
-    background-color: #e66388;
-    }
-
-    .rock {
-    background-color: #b4a04a;
-    }
-
-    .steel {
-    background-color: #b8b8ce;
-    }
-
-    .water {
-    background-color: #6f91e9;
     }
 
 </style>

@@ -1,28 +1,28 @@
 <template>
     <div class="main_profile">
-        <h3>{{ this.$route.params.name }}</h3>
+        <h3>{{ dataPokemon.name }}</h3>
         <div class="wrapper">
             <div class="box_pokemon_avatar">
-                <img :src="`https://pokeres.bastionbot.org/images/pokemon/${this.$route.params.id}.png`" alt="">
+                <img :src="`https://pokeres.bastionbot.org/images/pokemon/${stringIdToInteger(dataPokemon.id)}.png`" alt="">
             </div>
             <div class="details">
                 <div class="description">
-                    <p> {{ getPokemonDataById.description }} </p>
+                    <p> {{ dataPokemon.description }} </p>
                 </div>
                 <div class="features">
                     <div class="height">
                         <h4>Height</h4>
-                        <p> {{ getPokemonDataById.height.maximum }} </p>
+                        <p> {{ dataPokemon.height.maximum }} </p>
                     </div>
                     <div class="weight">
                         <h4>Weight</h4>
-                        <p> {{ getPokemonDataById.weight.maximum }} </p>
+                        <p> {{ dataPokemon.weight.maximum }} </p>
                     </div>
                 </div>
                 <div class="types">
                     <h4> Types </h4>
                     <div class="container_grid">
-                        <div v-for="(type, index) in getPokemonDataById.types" :key="index" :class="type.toLowerCase()">
+                        <div v-for="(type, index) in dataPokemon.types" :key="index" :class="type.toLowerCase()">
                         <p class="color_type"> {{ type }} </p>
                     </div>
                     </div>
@@ -30,7 +30,7 @@
                 <div class="weaknesses">
                     <h4> Weaknesses </h4>
                     <div class="container_grid">
-                        <div v-for="(weakness, index) in getPokemonDataById.weaknesses" :key="index" :class="weakness.toLowerCase()">
+                        <div v-for="(weakness, index) in dataPokemon.weaknesses" :key="index" :class="weakness.toLowerCase()">
                             <p class="color_type"> {{ weakness }} </p>
                         </div>
                     </div>
@@ -40,62 +40,103 @@
                     <div class="container_grid">
                         <div>
                             <h4 class="color_base_point">Base Stamina</h4>
-                            <p>{{getPokemonDataById.base_stamina}}</p>
+                            <p>{{dataPokemon.base_stamina}}</p>
                         </div>
                         <div>
                             <h4 class="color_base_point" >Base Attack</h4>
-                            <p>{{getPokemonDataById.base_attack}}</p>
+                            <p>{{dataPokemon.base_attack}}</p>
                         </div>
                         <div>
                             <h4  class="color_base_point">Base Defense</h4>
-                            <p>{{getPokemonDataById.base_defense}}</p>
+                            <p>{{dataPokemon.base_defense}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="next_evolution">
                     <div class="container_evolution">
                         <h4>Prev Evolution</h4>
-                        <div class="card_prev_evolution" v-if="getPokemonDataById.previous_evolution">
+                        <div class="card_prev_evolution" v-if="dataPokemon.previous_evolution">
                             <div class="box_img">
-                                <img :src="`https://pokeres.bastionbot.org/images/pokemon/${getPokemonDataById.previous_evolution[0].id}.png`" alt="">
+                                <img :src="`https://pokeres.bastionbot.org/images/pokemon/${stringIdToInteger(dataPokemon.previous_evolution.slice(-1).pop().id)}.png`" alt="">
                             </div>
-                            <h3 class="name_evolution">{{ getPokemonDataById.previous_evolution[0].name }}</h3>
+                            <h3 class="name_evolution">{{ dataPokemon.previous_evolution.slice(-1).pop().name }}</h3>
                         </div>
-                        <div v-else>
-                            <p>Not found</p>
-                        </div>
+                        <div v-else class="not_found_prev_pokemon">
+                            <div class="box_img">
+                                <img src="../assets/images/not_found.jpg" alt="">
+                            </div>
+                        </div>  
                     </div>
                     <div class="container_evolution">
                         <h4>Next Evolution</h4>
-                        <div class="card_prev_evolution" v-if="getPokemonDataById.next_evolution">
+                        <div class="card_prev_evolution" v-if="dataPokemon.next_evolution">
                             <div class="box_img">
-                                <img :src="`https://pokeres.bastionbot.org/images/pokemon/${getPokemonDataById.next_evolution[0].id}.png`" alt="">
+                                <img :src="`https://pokeres.bastionbot.org/images/pokemon/${stringIdToInteger(dataPokemon.next_evolution[0].id)}.png`" alt="">
                             </div>
-                            <h3 class="name_evolution">{{ getPokemonDataById.next_evolution[0].name }}</h3>
+                            <h3 class="name_evolution">{{ dataPokemon.next_evolution[0].name }}</h3>
                         </div>
-                        <div v-else>
-                            <p>Not found</p>
+                        <div v-else class="not_found_next_pokemon">
+                            <div class="box_img">
+                                <img src="../assets/images/not_found.jpg" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="buttons_routes">
+                <a href="" @click.prevent="loadPrevPokemon()">Prev pokemon</a>
+                <button>go pokedex</button>
+                <button>next pokemon</button>
+            </div>
+        
         </div>
     </div>
 </template>
 <script>
 export default {
     name: 'ProfilePokemon',
+    data() {
+        return {
+            namePokemon: this.$route.params.name
+        }
+    },
+    methods: {
+        stringIdToInteger(id) {
+            return parseInt(id);
+        },
+        loadPrevPokemon() {
+            this.$router.push({
+                name: 'Pokemon',
+                params: {name: this.prevPokemon.name }
+            });
+        }
+    },
     computed: {
-        getPokemonDataById() {
-            return this.$store.state.pokemons[this.$route.params.id - 1];
+        dataPokemon() {
+            return this.$store.getters.getPokemonById(this.namePokemon);
+        },
+        prevPokemon() {
+            return this.$store.state.pokemons[this.stringIdToInteger(this.dataPokemon.id) - 2];
+        },
+        nextPokemon() {
+            return this.$store.state.pokemons[this.stringIdToInteger(this.dataPokemon.id)];
         }
     },
 }
 </script>
 <style scoped>
+    @import '../assets/styles/pokemon_types.css';
     p {
         font-weight: 500;
         text-align: center;
+    }
+    h3 {
+        font-weight: 500;
+        font-size: 30px;
+    }
+    h4 {
+        font-weight: 500;
+        font-size: 15px;
     }
     .main_profile {
         background: #fff;
@@ -106,20 +147,24 @@ export default {
     }
     .main_profile .wrapper {
         display: flex;
-        margin-bottom: 40px
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
     .main_profile .wrapper .box_pokemon_avatar {
         padding: 15px;
         background: #e4e8f0;
-        width: 50%;
+        width: 45%;
         margin: 15px 7px 15px 15px;
     }
     .main_profile .wrapper .box_pokemon_avatar img {
         width: 100%;
     }
     .main_profile .wrapper .details {
-        width: 50%;
+        width: 45%;
         margin: 15px 15px 15px 7px;
+    }
+    .main_profile .wrapper .buttons_routes {  
+        width: 100%;
     }
     .details .description {
         margin-bottom: 8px;
@@ -172,6 +217,20 @@ export default {
         width: 70px;
         margin: 0 auto;
     }
+    .details .next_evolution .not_found_prev_pokemon .box_img {
+        width: 70px;
+        margin: 0 auto 14px auto;
+    }
+    .details .next_evolution .not_found_prev_pokemon .box_img img {
+        width: 100%;
+    }
+    .details .next_evolution .not_found_next_pokemon .box_img {
+        width: 70px;
+        margin: 0 auto 14px auto;
+    }
+    .details .next_evolution .not_found_next_pokemon .box_img img {
+        width: 100%;
+    }
     .details .next_evolution {
         display: flex;
         justify-content: space-around;
@@ -186,85 +245,5 @@ export default {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 5px;
-    }
-    h3 {
-        font-weight: 500;
-        font-size: 30px;
-    }
-    h4 {
-        font-weight: 500;
-        font-size: 15px;
-    }
-
-    .bug {
-    background-color: #abb642;
-    }
-
-    .dark {
-    background-color: #6c584a;
-    }
-
-    .dragon {
-    background-color: #6843ef;
-    }
-
-    .electric {
-    background-color: #f2d054;
-    }
-
-    .fairy {
-    background-color: #e29dac;
-    }
-
-    .flying {
-    background-color: #a493ea;
-    }
-
-    .fighting {
-    background-color: #b13c31;
-    }
-
-    .fire {
-    background-color: #e28544;
-    }
-
-    .ghost {
-    background-color: #6c5a94;
-    }
-
-    .grass {
-    background-color: #8bc560;
-    }
-
-    .ground {
-    background-color: #dbc074;
-    }
-
-    .ice {
-    background-color: #a6d6d7;
-    }
-
-    .normal {
-    background-color: #a8a77d;
-    }
-
-    .poison {
-    background-color: #94489b;
-    }
-
-    .psychic {
-    background-color: #e66388;
-    }
-
-    .rock {
-    background-color: #b4a04a;
-    }
-
-    .steel {
-    background-color: #b8b8ce;
-    }
-
-    .water {
-    background-color: #6f91e9;
     }
 </style>

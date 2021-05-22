@@ -30,6 +30,9 @@ const store = new Vuex.Store({
                 return pokeData;
             }
             return state.pokemons;
+        },
+        getPokemonById: (state) => name => {
+            return state.pokemons.find(pokeData => pokeData.name === name);
         }
     }
 });
