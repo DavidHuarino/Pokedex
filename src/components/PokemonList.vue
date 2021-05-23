@@ -61,4 +61,19 @@ export default {
     .not_found {
         font-weight: 500;
     }
+    @media screen and (max-width: 600px) {
+        .cards_pokemons {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .cards_pokemons {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media screen and (max-width: 320px) {
+        .cards_pokemons {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>

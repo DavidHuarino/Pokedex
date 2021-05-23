@@ -31,9 +31,13 @@ const store = new Vuex.Store({
             }
             return state.pokemons;
         },
-        getPokemonById: (state) => name => {
+        getPokemonByName: (state) => name => {
             return state.pokemons.find(pokeData => pokeData.name === name);
-        }
+        },
+        getPokemonById: (state) => id => {
+            let idString = id.toString();
+            return state.pokemons.find(pokeData => pokeData.id === idString.padStart(3, '0'));
+        },
     }
 });
 store.dispatch('getPokemons', json);

@@ -1,6 +1,6 @@
 <template>
     <div class="main_profile">
-        <h3>{{ dataPokemon.name }}</h3>
+        <h3>{{ dataPokemon.name }} <span>N.º{{dataPokemon.id}}</span></h3>
         <div class="wrapper">
             <div class="box_pokemon_avatar">
                 <img :src="`https://pokeres.bastionbot.org/images/pokemon/${stringIdToInteger(dataPokemon.id)}.png`" alt="">
@@ -40,15 +40,18 @@
                     <div class="container_grid">
                         <div>
                             <h4 class="color_base_point">Base Stamina</h4>
-                            <p>{{dataPokemon.base_stamina}}</p>
+                            <p v-if="dataPokemon.base_stamina">{{dataPokemon.base_stamina}}</p>
+                            <p v-else>not found</p>
                         </div>
                         <div>
                             <h4 class="color_base_point" >Base Attack</h4>
-                            <p>{{dataPokemon.base_attack}}</p>
+                            <p v-if="dataPokemon.base_attack">{{dataPokemon.base_attack}}</p>
+                            <p v-else>not found</p>
                         </div>
                         <div>
                             <h4  class="color_base_point">Base Defense</h4>
-                            <p>{{dataPokemon.base_defense}}</p>
+                            <p v-if="dataPokemon.base_defense">{{dataPokemon.base_defense}}</p>
+                            <p v-else>not found</p> 
                         </div>
                     </div>
                 </div>
@@ -84,9 +87,9 @@
                 </div>
             </div>
             <div class="buttons_routes">
-                <a href="" @click.prevent="loadPrevPokemon()">Prev pokemon</a>
-                <button>go pokedex</button>
-                <button>next pokemon</button>
+                <button @click.prevent="loadPrevPokemon()" :disabled="!prevPokemon">prev pokemon</button>
+                <button @click.prevent="loadHomePokemon()">go pokedex</button>
+                <button @click.prevent="loadNextPokemon()" :disabled="!nextPokemon" >next pokemon</button>
             </div>
         
         </div>
@@ -95,9 +98,14 @@
 <script>
 export default {
     name: 'ProfilePokemon',
+    watch: {
+        $route(to) {
+            this.namePokemon = to.params.name;
+        }
+    },
     data() {
         return {
-            namePokemon: this.$route.params.name
+            namePokemon: this.$route.params.name,
         }
     },
     methods: {
@@ -107,19 +115,30 @@ export default {
         loadPrevPokemon() {
             this.$router.push({
                 name: 'Pokemon',
-                params: {name: this.prevPokemon.name }
+                params: {name: this.prevPokemon.name}
+            });
+        },
+        loadNextPokemon() {
+            this.$router.push({
+                name: 'Pokemon',
+                params: {name: this.nextPokemon.name}
+            });
+        },
+        loadHomePokemon() {
+            this.$router.push({
+                name: 'Home'
             });
         }
     },
     computed: {
         dataPokemon() {
-            return this.$store.getters.getPokemonById(this.namePokemon);
+            return this.$store.getters.getPokemonByName(this.namePokemon);
         },
         prevPokemon() {
-            return this.$store.state.pokemons[this.stringIdToInteger(this.dataPokemon.id) - 2];
+            return this.$store.getters.getPokemonById(this.stringIdToInteger(this.dataPokemon.id) - 1);
         },
         nextPokemon() {
-            return this.$store.state.pokemons[this.stringIdToInteger(this.dataPokemon.id)];
+            return this.$store.getters.getPokemonById(this.stringIdToInteger(this.dataPokemon.id) + 1);
         }
     },
 }
@@ -157,7 +176,9 @@ export default {
         margin: 15px 7px 15px 15px;
     }
     .main_profile .wrapper .box_pokemon_avatar img {
+        display: block;
         width: 100%;
+        margin: auto auto;
     }
     .main_profile .wrapper .details {
         width: 45%;
@@ -165,6 +186,24 @@ export default {
     }
     .main_profile .wrapper .buttons_routes {  
         width: 100%;
+        margin-bottom: 15px;
+    }
+    .main_profile .wrapper .buttons_routes button {
+        padding: 7px;
+        margin: 5px;
+        font-weight: 500;
+        font-size: 14px;
+        border: 2px solid transparent;
+        cursor: pointer;
+        background: #2978b5;
+        color: #fff;
+        border-radius: 3px;
+        
+    }
+    .main_profile .wrapper .buttons_routes button:hover {
+        background: white;
+        color: #2978b5;
+        border: 2px solid #2978b5;
     }
     .details .description {
         margin-bottom: 8px;

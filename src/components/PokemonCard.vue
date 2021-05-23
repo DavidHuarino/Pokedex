@@ -8,7 +8,7 @@
         <h3>{{ namePokemon }}</h3>
         <div class="container_type_pokemon">
             <div class="type_pokemon" v-for="(type, index) in typesPokemon" :key="index" :class="type.toLowerCase()">
-                <h3><span class="type_name">{{ type }}</span></h3>
+                <p class="type_name">{{ type }}</p>
             </div>
         </div>
     </div>
@@ -64,12 +64,12 @@ export default {
     }
     .container_type_pokemon {
         display: flex;
-        flex-wrap: space-beetween;
-        justify-content: space-around;
+        justify-content: space-evenly;
         color: #fff;
     }
     .type_pokemon .type_name {
-        font-size: 13px;
+        font-weight: 400;
+        font-size: 14px;
         padding: 4px;
     }
 
