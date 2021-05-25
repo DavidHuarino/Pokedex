@@ -102,56 +102,70 @@
         <div class="container_avatar_pokemon">
             <img :src="`https://pokeres.bastionbot.org/images/pokemon/${stringIdToInteger(dataPokemon.id)}.png`" alt="">
         </div>
-        <div class="descripcion_pokemon">
-            <p>{{ dataPokemon.description }}</p>
-        </div>
-        <div class="features_pokemon">
-            <div class="height">
-                <h3>Height</h3>
-                <p> {{ dataPokemon.height.maximum }} </p>
+        <div class="container_details">
+            <div class="description_pokemon">
+                <p>{{ dataPokemon.description }}</p>
             </div>
-            <div class="weight">
-                <h3>Weight</h3>
-                <p> {{ dataPokemon.weight.maximum }} </p>
+            <div class="container_features">
+                <div class="features_pokemon">
+                    <div class="height">
+                        <h4>Height</h4>
+                        <p> {{ dataPokemon.height.maximum }} </p>
+                    </div>
+                    <div class="weight">
+                        <h4>Weight</h4>
+                        <p> {{ dataPokemon.weight.maximum }} </p>
+                    </div>
+                </div>
+                <div class="base_points_pokemon">
+                    <div class="container_grid_base_points">
+                        <div>
+                            <h4 class="color_base_point">Base Stamina</h4>
+                            <p v-if="dataPokemon.base_stamina">{{dataPokemon.base_stamina}}</p>
+                            <p v-else>not found</p>
+                        </div>
+                        <div>
+                            <h4 class="color_base_point" >Base Attack</h4>
+                            <p v-if="dataPokemon.base_attack">{{dataPokemon.base_attack}}</p>
+                            <p v-else>not found</p>
+                        </div>
+                        <div>
+                            <h4  class="color_base_point">Base Defense</h4>
+                            <p v-if="dataPokemon.base_defense">{{dataPokemon.base_defense}}</p>
+                            <p v-else>not found</p> 
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <!--
-        <div class="types_pokemon">
-            <h3> Types </h3>
-            <div class="container_grid_types">
-                <div class="block_type_pokemon" v-for="(type, index) in dataPokemon.types" :key="index" :class="type.toLowerCase()">
-                    <p class="color_type_pokemon"> {{ type }} </p>
+            <div class="container_type_weakness_attack">
+                <div class="container_types_weaknesses">
+                    <div class="types_pokemon">
+                        <h4> Types </h4>
+                        <div class="container_grid_types">
+                            <div class="block_type_pokemon" v-for="(type, index) in dataPokemon.types" :key="index" :class="type.toLowerCase()">
+                                <p class="color_type_pokemon"> {{ type }} </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weaknesses_pokemon">
+                        <h4> Weaknesses </h4>
+                        <div class="container_grid_weaknesses">
+                            <div class="block_weakness_pokemon" v-for="(weakness, index) in dataPokemon.weaknesses" :key="index" :class="weakness.toLowerCase()">
+                                <p class="color_weakness_pokemon"> {{ weakness }} </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container_attack">
+                    <h4>Special attacks</h4>
+                    <div class="container_grid_attacks">
+                        <div v-for="(dataAttack, index) in dataPokemon.special_attacks" :key="index">
+                            {{ dataAttack.name }} - {{ dataAttack.damage }} damage - {{ dataAttack.type }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="weaknesses_pokemon">
-            <h3> Weaknesses </h3>
-            <div class="container_grid_weaknesses">
-                <div class="block_weakness_pokemon" v-for="(weakness, index) in dataPokemon.weaknesses" :key="index" :class="weakness.toLowerCase()">
-                    <p class="color_weakness_pokemon"> {{ weakness }} </p>
-                </div>
-            </div>
-        </div>
-        <div class="base_points_pokemon">
-            <h3>Base Points</h3>
-            <div class="container_grid_base_points">
-                <div>
-                    <h4 class="color_base_point">Base Stamina</h4>
-                    <p v-if="dataPokemon.base_stamina">{{dataPokemon.base_stamina}}</p>
-                    <p v-else>not found</p>
-                </div>
-                <div>
-                    <h4 class="color_base_point" >Base Attack</h4>
-                    <p v-if="dataPokemon.base_attack">{{dataPokemon.base_attack}}</p>
-                    <p v-else>not found</p>
-                </div>
-                <div>
-                    <h4  class="color_base_point">Base Defense</h4>
-                    <p v-if="dataPokemon.base_defense">{{dataPokemon.base_defense}}</p>
-                    <p v-else>not found</p> 
-                </div>
-            </div>
-        </div>-->
     </div>
 </template>
 <script>
@@ -206,17 +220,12 @@ export default {
     @import '../assets/styles/pokemon_types.css';
     .main_profile {
         background: #fff;
-        max-width: 800px;
+        max-width: 900px;
         width: 90%;
         border-radius: 10px;
         display: flex;
-        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: flex-start;
-        align-content: flex-start;
         padding: 20px;
-
-        
     }
     .main_profile .container_title {
         font-weight: 500;
@@ -225,63 +234,98 @@ export default {
     }
     .main_profile .container_avatar_pokemon {
         width: 25%;
-        /*margin: 10px auto;*/
         background: #e4e8f0;
         padding: 5px;
         border-radius: 4px;
     }
+    .main_profile .container_details {
+        width: 75%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
     .main_profile .container_avatar_pokemon img {
         width: 100%;
     }
-    .main_profile .descripcion_pokemon {
+    .main_profile .container_details .description_pokemon {
         text-align: left;
         font-weight: 400;
-        font-size: 13px;
-        width: 75%;
-        height: 100%;
+        font-size: 14px;
+        width: 100%;
     }
-    .main_profile .features_pokemon {
+    .main_profile .container_details .container_features {
+        width: 100%;
+        display: flex;
+    }
+    .main_profile .container_details .container_type_weakness_attack {
+        width: 100%;
+        display: flex;
+    }
+    .main_profile .container_details .container_types_weaknesses {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    .main_profile .container_details .container_features h4 {
+        color: #fff;
+        font-weight: 400;
+    }
+    .main_profile .container_details .container_features p {
+        font-size: 15px;
+    }
+    .main_profile .container_details .features_pokemon {
+        width: 25%;
         display: flex;
         justify-content: space-evenly;
         background: #2978b5;
-        padding: 8px;
-        border-radius: 4px;
-        width: 50%;
-        flex: 1 0 200px;
+        padding: 5px;
+    }
+    .main_profile .container_details .container_features .base_points_pokemon {
+        width: 75%;
+        background: #e84545;
+        padding: 5px;
+    }
+    .main_profile .container_details .base_points_pokemon .container_grid_base_points {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    /* types */
+    .main_profile .container_details .types_pokemon {
+        width: 100%;
+    }
+    .main_profile .container_details .types_pokemon h4 {
+        font-weight: 500;
+        text-align: left;
     }
     .main_profile .types_pokemon .container_grid_types {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: 15px;
-        row-gap: 7px;
+        display: flex;
         color: #fff;
+        flex-wrap: wrap;
     }
     .main_profile .types_pokemon .container_grid_types .block_type_pokemon {
-        border-radius: 4px;
-        padding: 3px;
+        padding: 5px;
+        margin: 5px;
     }
     .main_profile .types_pokemon .container_grid_types .block_type_pokemon .color_type_pokemon {
-        font-weight: 400;
-        font-size: 15px;
+        font-size: 14px;
     }
+    /* weakness */ 
+    .main_profile .container_details .weaknesses_pokemon h4 {
+        font-weight: 500;
+        text-align: left;
+    }
+
     .main_profile .weaknesses_pokemon .container_grid_weaknesses {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: 15px;
-        row-gap: 7px;
+        display: flex;
+        flex-wrap: wrap;
         color: #fff;
     }
     .main_profile .weaknesses_pokemon .container_grid_weaknesses .block_weakness_pokemon {
-        border-radius: 4px;
-        padding: 3px;
+        padding: 5px;
+        margin: 5px;
     }
     .main_profile .weaknesses_pokemon .container_grid_weaknesses .block_weakness_pokemon .color_weakness_pokemon {
-        font-weight: 400;
-        font-size: 15px;
-    }
-    .main_profile .base_points_pokemon .container_grid_base_points {
-        display: flex;
-        justify-content: space-evenly;
+        font-size: 14px;
     }
     /*
     p {

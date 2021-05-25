@@ -71,6 +71,7 @@ export default {
         font-weight: 400;
         font-size: 14px;
         padding: 4px;
+        flex-grow: 1;
     }
 
 </style>
