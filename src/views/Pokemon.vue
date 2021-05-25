@@ -18,7 +18,8 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        /*min-height: 100vh;*/
         height: 100vh;
-        max-width: 100%;
+        width: 100vw;
     }
 </style>
