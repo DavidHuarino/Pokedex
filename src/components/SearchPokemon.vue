@@ -29,11 +29,11 @@ export default {
     .container-search {
         background-color: #bdbdbd;
         padding: 7px;
-        margin: 0 15px 30px 15px;
+        margin: 0 auto 30px auto;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
-        
+        width: 100%;
     }
     .box_img {
         width: 90px;

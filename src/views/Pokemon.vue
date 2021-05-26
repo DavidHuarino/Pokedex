@@ -14,12 +14,12 @@ export default {
 </script>
 <style>
     .container_profile {
-        background: rebeccapurple;
+        background: grey;
         display: flex;
         align-items: center;
         justify-content: center;
-        /*min-height: 100vh;*/
-        height: 100vh;
+        min-height: 100vh;
+        height: 100%;
         width: 100vw;
     }
 </style>

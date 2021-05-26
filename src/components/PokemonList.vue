@@ -47,7 +47,6 @@ export default {
     .cards_pokemons {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        /*grid-template-columns: repeat(4, 1fr);*/
         grid-auto-rows: minmax(200px, auto);
         gap: 30px;
         margin: 15px;
@@ -61,20 +60,4 @@ export default {
     .not_found {
         font-weight: 500;
     }
-    /*
-    @media screen and (max-width: 600px) {
-        .cards_pokemons {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-    @media screen and (max-width: 480px) {
-        .cards_pokemons {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-    @media screen and (max-width: 320px) {
-        .cards_pokemons {
-            grid-template-columns: 1fr;
-        }
-    }*/
 </style>

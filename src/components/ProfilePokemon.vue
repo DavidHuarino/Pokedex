@@ -1,101 +1,5 @@
 <template>
     <div class="main_profile">
-        <!--
-        <h3>{{ dataPokemon.name }} <span>N.º{{dataPokemon.id}}</span></h3>
-        <div class="wrapper">
-
-            <div class="box_pokemon_avatar">
-                <img :src="`https://pokeres.bastionbot.org/images/pokemon/${stringIdToInteger(dataPokemon.id)}.png`" alt="">
-            </div>
-            <div class="details">
-                <div class="description">
-                    <p> {{ dataPokemon.description }} </p>
-                </div>
-                <div class="features">
-                    <div class="height">
-                        <h4>Height</h4>
-                        <p> {{ dataPokemon.height.maximum }} </p>
-                    </div>
-                    <div class="weight">
-                        <h4>Weight</h4>
-                        <p> {{ dataPokemon.weight.maximum }} </p>
-                    </div>
-                </div>
-                <div class="types">
-                    <h4> Types </h4>
-                    <div class="container_grid">
-                        <div v-for="(type, index) in dataPokemon.types" :key="index" :class="type.toLowerCase()">
-                        <p class="color_type"> {{ type }} </p>
-                    </div>
-                    </div>
-                </div>
-                <div class="weaknesses">
-                    <h4> Weaknesses </h4>
-                    <div class="container_grid">
-                        <div v-for="(weakness, index) in dataPokemon.weaknesses" :key="index" :class="weakness.toLowerCase()">
-                            <p class="color_type"> {{ weakness }} </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="base_points">
-                    <h4>Base Points</h4>
-                    <div class="container_grid">
-                        <div>
-                            <h4 class="color_base_point">Base Stamina</h4>
-                            <p v-if="dataPokemon.base_stamina">{{dataPokemon.base_stamina}}</p>
-                            <p v-else>not found</p>
-                        </div>
-                        <div>
-                            <h4 class="color_base_point" >Base Attack</h4>
-                            <p v-if="dataPokemon.base_attack">{{dataPokemon.base_attack}}</p>
-                            <p v-else>not found</p>
-                        </div>
-                        <div>
-                            <h4  class="color_base_point">Base Defense</h4>
-                            <p v-if="dataPokemon.base_defense">{{dataPokemon.base_defense}}</p>
-                            <p v-else>not found</p> 
-                        </div>
-                    </div>
-                </div>
-                <div class="next_evolution">
-                    <div class="container_evolution">
-                        <h4>Prev Evolution</h4>
-                        <div class="card_prev_evolution" v-if="dataPokemon.previous_evolution">
-                            <div class="box_img">
-                                <img :src="`https://pokeres.bastionbot.org/images/pokemon/${stringIdToInteger(dataPokemon.previous_evolution.slice(-1).pop().id)}.png`" alt="">
-                            </div>
-                            <h3 class="name_evolution">{{ dataPokemon.previous_evolution.slice(-1).pop().name }}</h3>
-                        </div>
-                        <div v-else class="not_found_prev_pokemon">
-                            <div class="box_img">
-                                <img src="../assets/images/not_found.jpg" alt="">
-                            </div>
-                        </div>  
-                    </div>
-                    <div class="container_evolution">
-                        <h4>Next Evolution</h4>
-                        <div class="card_prev_evolution" v-if="dataPokemon.next_evolution">
-                            <div class="box_img">
-                                <img :src="`https://pokeres.bastionbot.org/images/pokemon/${stringIdToInteger(dataPokemon.next_evolution[0].id)}.png`" alt="">
-                            </div>
-                            <h3 class="name_evolution">{{ dataPokemon.next_evolution[0].name }}</h3>
-                        </div>
-                        <div v-else class="not_found_next_pokemon">
-                            <div class="box_img">
-                                <img src="../assets/images/not_found.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="buttons_routes">
-                <button @click.prevent="loadPrevPokemon()" :disabled="!prevPokemon">prev pokemon</button>
-                <button @click.prevent="loadHomePokemon()">go pokedex</button>
-                <button @click.prevent="loadNextPokemon()" :disabled="!nextPokemon" >next pokemon</button>
-            </div>
-            
-        </div>
-        -->
         <div class="container_title">
             <h3>{{ dataPokemon.name }}<span> N.º{{ dataPokemon.id }}</span> </h3>
         </div>
@@ -159,12 +63,57 @@
                 <div class="container_attack">
                     <h4>Special attacks</h4>
                     <div class="container_grid_attacks">
-                        <div v-for="(dataAttack, index) in dataPokemon.special_attacks" :key="index">
-                            {{ dataAttack.name }} - {{ dataAttack.damage }} damage - {{ dataAttack.type }}
+                        <table>
+                            <tr v-for="(dataAttack, index) in dataPokemon.special_attacks" :key="index">
+                                <td>
+                                    <p>{{ dataAttack.name }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ dataAttack.damage }} damage</p>
+                                </td>
+                                <td class="color_attack">
+                                    <p :class="dataAttack.type.toLowerCase()">{{ dataAttack.type }}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="prev_next_evolution">
+                <div class="container_evolution">
+                    <h4>Prev Evolution</h4>
+                    <div class="card_prev_evolution" v-if="dataPokemon.previous_evolution">
+                        <div class="box_img">
+                            <img :src="`https://pokeres.bastionbot.org/images/pokemon/${stringIdToInteger(dataPokemon.previous_evolution.slice(-1).pop().id)}.png`" alt="">
+                        </div>
+                        <p class="name_evolution">{{ dataPokemon.previous_evolution.slice(-1).pop().name }}</p>
+                    </div>
+                    <div v-else class="not_found_prev_pokemon">
+                        <div class="box_img">
+                            <img src="../assets/images/not_found.jpg" alt="">
+                        </div>
+                    </div>  
+                </div>
+                <div class="container_evolution">
+                    <h4>Next Evolution</h4>
+                    <div class="card_prev_evolution" v-if="dataPokemon.next_evolution">
+                        <div class="box_img">
+                            <img :src="`https://pokeres.bastionbot.org/images/pokemon/${stringIdToInteger(dataPokemon.next_evolution[0].id)}.png`" alt="">
+                        </div>
+                        <p class="name_evolution">{{ dataPokemon.next_evolution[0].name }}</p>
+                    </div>
+                    <div v-else class="not_found_next_pokemon">
+                        <div class="box_img">
+                            <img src="../assets/images/not_found.jpg" alt="">
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="buttons_routes">
+            <button @click.prevent="loadPrevPokemon()" :disabled="!prevPokemon">prev pokemon</button>
+            <button @click.prevent="loadHomePokemon()">go pokedex</button>
+            <button @click.prevent="loadNextPokemon()" :disabled="!nextPokemon" >next pokemon</button>
         </div>
     </div>
 </template>
@@ -226,23 +175,33 @@ export default {
         display: flex;
         flex-wrap: wrap;
         padding: 20px;
+        justify-content: space-between;
     }
     .main_profile .container_title {
         font-weight: 500;
         font-size: 20px;
         width: 100%;
+        margin-bottom: 5px;
     }
     .main_profile .container_avatar_pokemon {
-        width: 25%;
+        width: 24%;
         background: #e4e8f0;
         padding: 5px;
         border-radius: 4px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+
     }
     .main_profile .container_details {
-        width: 75%;
+        width: 74%;
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
+        margin-bottom: 7px;
+    }
+    .main_profile .buttons_routes {
+        width: 100%;
     }
     .main_profile .container_avatar_pokemon img {
         width: 100%;
@@ -252,19 +211,56 @@ export default {
         font-weight: 400;
         font-size: 14px;
         width: 100%;
+        margin-bottom: 7px;
     }
     .main_profile .container_details .container_features {
         width: 100%;
         display: flex;
+        justify-content: space-between;
+        margin-bottom: 7px;
     }
     .main_profile .container_details .container_type_weakness_attack {
         width: 100%;
         display: flex;
+        margin-bottom: 7px;
+    }
+    .main_profile .container_details .prev_next_evolution {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .main_profile .container_details .prev_next_evolution img {
+        width: 50px;
+    }
+    .main_profile .container_details .prev_next_evolution h4 {
+        font-weight: 500;
+    }
+    .main_profile .container_details .prev_next_evolution p {
+        font-size: 14px;
     }
     .main_profile .container_details .container_types_weaknesses {
-        width: 50%;
+        width: 33%;
         display: flex;
         flex-direction: column;
+    }
+    .main_profile .container_details .container_attack {
+        width: 66%;
+    }
+    .main_profile .container_details .container_attack table {
+        width: 100%;
+        border-collapse: collapse;
+        font-weight: 400;
+        font-size: 14px;
+    }
+    .main_profile .container_details .container_attack td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+    }
+    .main_profile .container_details .container_attack h4 {
+        font-weight: 500;
+    }
+    .main_profile .container_details .container_attack .color_attack p {
+        color: #fff;
+        padding: 2px 3px;
     }
     .main_profile .container_details .container_features h4 {
         color: #fff;
@@ -274,14 +270,14 @@ export default {
         font-size: 15px;
     }
     .main_profile .container_details .features_pokemon {
-        width: 25%;
+        width: 24%;
         display: flex;
         justify-content: space-evenly;
         background: #2978b5;
         padding: 5px;
     }
     .main_profile .container_details .container_features .base_points_pokemon {
-        width: 75%;
+        width: 74%;
         background: #e84545;
         padding: 5px;
     }
@@ -292,19 +288,21 @@ export default {
     /* types */
     .main_profile .container_details .types_pokemon {
         width: 100%;
+        margin-bottom: 7px;
     }
     .main_profile .container_details .types_pokemon h4 {
         font-weight: 500;
         text-align: left;
     }
     .main_profile .types_pokemon .container_grid_types {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         color: #fff;
-        flex-wrap: wrap;
+        margin-top: 4px;
     }
     .main_profile .types_pokemon .container_grid_types .block_type_pokemon {
-        padding: 5px;
-        margin: 5px;
+        padding: 3px;
+        margin: 0 5px 5px 0;
     }
     .main_profile .types_pokemon .container_grid_types .block_type_pokemon .color_type_pokemon {
         font-size: 14px;
@@ -316,63 +314,23 @@ export default {
     }
 
     .main_profile .weaknesses_pokemon .container_grid_weaknesses {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         color: #fff;
+        margin-top: 4px;
+    }
+    .main_profile .container_grid_attacks {
+        margin-top: 4px;
     }
     .main_profile .weaknesses_pokemon .container_grid_weaknesses .block_weakness_pokemon {
-        padding: 5px;
-        margin: 5px;
+        padding: 3px;
+        margin: 0 5px 5px 0;
     }
     .main_profile .weaknesses_pokemon .container_grid_weaknesses .block_weakness_pokemon .color_weakness_pokemon {
         font-size: 14px;
     }
-    /*
-    p {
-        font-weight: 500;
-        text-align: center;
-    }
-    h3 {
-        font-weight: 500;
-        font-size: 30px;
-    }
-    h4 {
-        font-weight: 500;
-        font-size: 15px;
-    }
-    .main_profile {
-        background: #fff;
-        border-radius: 10px;
-        max-width: 800px;
-        width: 90%;
-
-    }
-    .main_profile .wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    .main_profile .wrapper .box_pokemon_avatar {
-        padding: 15px;
-        background: #e4e8f0;
-        width: 45%;
-        margin: 15px 7px 15px 15px;
-    }
-    .main_profile .wrapper .box_pokemon_avatar img {
-        display: block;
-        width: 100%;
-        margin: auto auto;
-    }
-    .main_profile .wrapper .details {
-        width: 45%;
-        margin: 15px 15px 15px 7px;
-    }
-    .main_profile .wrapper .buttons_routes {  
-        width: 100%;
-        margin-bottom: 15px;
-    }
-    .main_profile .wrapper .buttons_routes button {
-        padding: 7px;
+    .main_profile .buttons_routes button {
+        padding: 6px;
         margin: 5px;
         font-weight: 500;
         font-size: 14px;
@@ -381,92 +339,67 @@ export default {
         background: #2978b5;
         color: #fff;
         border-radius: 3px;
-        
     }
-    .main_profile .wrapper .buttons_routes button:hover {
+    .main_profile .buttons_routes button:hover {
         background: white;
         color: #2978b5;
         border: 2px solid #2978b5;
     }
-    .details .description {
-        margin-bottom: 8px;
+
+    /*  media queries */
+    @media screen and (max-width: 768px) {
+        .main_profile .container_details .container_features {
+            flex-direction: column;
+        }
+        .main_profile .container_details .features_pokemon {
+            width: 100%;
+            margin-bottom: 7px;
+        }
+        .main_profile .container_details .container_features .base_points_pokemon {
+            width: 100%;
+        }
+        .main_profile .container_details .container_type_weakness_attack {
+            flex-direction: column;
+        }
+        .main_profile .container_details .container_attack {
+            order: -1;
+            width: 100%;
+        }
+        .main_profile .container_details .container_types_weaknesses {
+            flex-direction: column;
+            width: 100%;
+        }
+        .main_profile .container_details .types_pokemon {
+            width: 100%;
+        }
+        .main_profile .container_details .weaknesses_pokemon {
+            width: 100%;
+        }
+        .main_profile .types_pokemon .container_grid_types {
+            grid-template-columns: repeat(6, 1fr);
+        }
+        .main_profile .weaknesses_pokemon .container_grid_weaknesses {
+            grid-template-columns: repeat(6, 1fr);
+        }
     }
-    .details .description p {
-        text-align: left;
+    @media screen and (max-width: 510px) {
+        .main_profile {
+            flex-direction: column;
+            margin: 50px;
+        }
+        .main_profile .container_avatar_pokemon {
+            width: 60%;
+            margin: 0px auto 7px auto;
+        }
+        .main_profile .container_details {
+            width: 100%;
+        }
+        .main_profile .buttons_routes {
+            display: flex;
+            justify-content: space-between;
+        }
+        .main_profile .buttons_routes button {
+            font-size: 13px;
+        }
     }
-    .details .types {
-        margin-bottom: 8px;
-    }
-    .details .weaknesses {
-        margin-bottom: 8px;
-    }
-    .details .features {
-        display: flex;
-        justify-content: space-around;
-        padding: 8px;
-        margin-bottom: 8px;
-        background: #2978b5;
-    }
-    .details .base_points {
-        margin-bottom: 8px;
-    }
-    .details .base_points .container_grid {
-        display: flex;
-        justify-content: space-around;
-        background: #e84545;
-        padding: 8px;
-    }
-    .details .base_points .color_base_point {
-        color: #fff;
-    }
-    .details .features .height h4, .details .features .weight h4 {
-        color: #fff;
-    }
-    .details .color_type {
-        color: #fff;
-        font-weight: 400;
-        font-size: 14px;
-        margin: 4px;
-    }
-    .details .next_evolution .name_evolution {
-        font-weight: 400;
-        font-size: 14px;
-    }
-    .details .next_evolution .card_prev_evolution .box_img img {
-        width: 100%;
-    }
-    .details .next_evolution .card_prev_evolution .box_img {
-        width: 70px;
-        margin: 0 auto;
-    }
-    .details .next_evolution .not_found_prev_pokemon .box_img {
-        width: 70px;
-        margin: 0 auto 14px auto;
-    }
-    .details .next_evolution .not_found_prev_pokemon .box_img img {
-        width: 100%;
-    }
-    .details .next_evolution .not_found_next_pokemon .box_img {
-        width: 70px;
-        margin: 0 auto 14px auto;
-    }
-    .details .next_evolution .not_found_next_pokemon .box_img img {
-        width: 100%;
-    }
-    .details .next_evolution {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-    .details .weaknesses .container_grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 5px;
-    }
-    .details .types .container_grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 5px;
-    }
-    */
 </style>

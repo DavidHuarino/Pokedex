@@ -1,7 +1,9 @@
 <template>
-    <div class="container">
+    <div>
         <SearchPokemon/>
-        <PokemonList/>
+        <div class="container">
+            <PokemonList/>
+        </div>  
     </div>
 </template>
 <script>
