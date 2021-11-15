@@ -5,9 +5,8 @@
                 <PokemonCard
                     v-for="pokeObject in pokemonsFiltered"
                     :key="stringIdToInteger(pokeObject.id)"
-                    :id="stringIdToInteger(pokeObject.id)"
+                    :id="pokeObject.id"
                     :name="pokeObject.name"
-                    :urlImages="urlImages"
                     :types="pokeObject.types"
                 />
             </div>
@@ -25,7 +24,7 @@ export default {
     name: 'PokemonList',
     data() {
         return {
-            urlImages: 'https://pokeres.bastionbot.org/images/pokemon/'
+            // urlImages: 'https://pokeres.bastionbot.org/images/pokemon/'
         }
     },
     components: {

@@ -4,7 +4,7 @@
             <h3>{{ dataPokemon.name }}<span> N.º{{ dataPokemon.id }}</span> </h3>
         </div>
         <div class="container_avatar_pokemon">
-            <img :src="`https://pokeres.bastionbot.org/images/pokemon/${stringIdToInteger(dataPokemon.id)}.png`" alt="">
+            <img :src="require(`../assets/pokemons/${ dataPokemon.id }.png`)" alt="">
         </div>
         <div class="container_details">
             <div class="description_pokemon">
@@ -84,7 +84,7 @@
                     <h4>Prev Evolution</h4>
                     <div class="card_prev_evolution" v-if="dataPokemon.previous_evolution">
                         <div class="box_img">
-                            <img :src="`https://pokeres.bastionbot.org/images/pokemon/${stringIdToInteger(dataPokemon.previous_evolution.slice(-1).pop().id)}.png`" alt="">
+                            <img :src="require(`../assets/pokemons/${ dataPokemon.id }.png`)" alt="">
                         </div>
                         <p class="name_evolution">{{ dataPokemon.previous_evolution.slice(-1).pop().name }}</p>
                     </div>
@@ -98,7 +98,7 @@
                     <h4>Next Evolution</h4>
                     <div class="card_prev_evolution" v-if="dataPokemon.next_evolution">
                         <div class="box_img">
-                            <img :src="`https://pokeres.bastionbot.org/images/pokemon/${stringIdToInteger(dataPokemon.next_evolution[0].id)}.png`" alt="">
+                            <img :src="require(`../assets/pokemons/${ dataPokemon.id }.png`)" alt="">
                         </div>
                         <p class="name_evolution">{{ dataPokemon.next_evolution[0].name }}</p>
                     </div>
@@ -191,7 +191,6 @@ export default {
         display: flex;
         align-items: center;
         margin-bottom: 7px;
-
     }
     .main_profile .container_details {
         width: 74%;
@@ -204,7 +203,7 @@ export default {
         width: 100%;
     }
     .main_profile .container_avatar_pokemon img {
-        width: 100%;
+        margin: auto;
     }
     .main_profile .container_details .description_pokemon {
         text-align: left;

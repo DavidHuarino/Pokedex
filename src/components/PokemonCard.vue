@@ -1,10 +1,10 @@
 <template>
     <div class="card_pokemon">
-        <div class="box_img">
-            <router-link :to="{name: 'Pokemon', params: {name: namePokemon}}">
-                <img :src="`${currentUrlImage}${IdPokemon}.png`" alt="">
-            </router-link>
-        </div>
+        <router-link :to="{name: 'Pokemon', params: {name: namePokemon}}">
+            <div class="box_img">
+                <img :src="require(`../assets/pokemons/${IdPokemon}.png`)" alt="">
+            </div>
+        </router-link>
         <h3>{{ namePokemon }}</h3>
         <div class="container_type_pokemon">
             <div class="type_pokemon" v-for="(type, index) in typesPokemon" :key="index" :class="type.toLowerCase()">
@@ -18,7 +18,6 @@ export default {
     name: 'PokemonCard',
     data() {
         return {
-            currentUrlImage: this.urlImages,
             IdPokemon: this.id,
             namePokemon: this.name,
             typesPokemon: this.types,
@@ -26,8 +25,7 @@ export default {
         }
     },
     props: {
-        urlImages: String,
-        id: Number,
+        id: String,
         name: String,
         types: Array
     }
@@ -45,8 +43,7 @@ export default {
     }
     .box_img {
         background: #e4e8f0;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        border-radius: 7px;
         margin-bottom: 5px;
     }
     .box_img img {
@@ -59,9 +56,9 @@ export default {
         font-weight: 400;
         margin-bottom: 5px;
     }
-    .card_pokemon img {
+    /* .card_pokemon img {
         width: 100%;
-    }
+    } */
     .container_type_pokemon {
         display: flex;
         justify-content: space-evenly;
