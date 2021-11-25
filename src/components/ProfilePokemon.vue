@@ -84,7 +84,7 @@
                     <h4>Prev Evolution</h4>
                     <div class="card_prev_evolution" v-if="dataPokemon.previous_evolution">
                         <div class="box_img">
-                            <img :src="require(`../assets/pokemons/${ dataPokemon.id }.png`)" alt="">
+                            <img :src="require(`../assets/pokemons/${ prevPokemon.id }.png`)" alt="">
                         </div>
                         <p class="name_evolution">{{ dataPokemon.previous_evolution.slice(-1).pop().name }}</p>
                     </div>
@@ -98,7 +98,7 @@
                     <h4>Next Evolution</h4>
                     <div class="card_prev_evolution" v-if="dataPokemon.next_evolution">
                         <div class="box_img">
-                            <img :src="require(`../assets/pokemons/${ dataPokemon.id }.png`)" alt="">
+                            <img :src="require(`../assets/pokemons/${ nextPokemon.id }.png`)" alt="">
                         </div>
                         <p class="name_evolution">{{ dataPokemon.next_evolution[0].name }}</p>
                     </div>

@@ -1,25 +1,30 @@
 <template>
     <div>
-        <div v-if="pokemonsFiltered.length">
-            <div class="cards_pokemons">
-                <PokemonCard
-                    v-for="pokeObject in pokemonsFiltered"
-                    :key="stringIdToInteger(pokeObject.id)"
-                    :id="pokeObject.id"
-                    :name="pokeObject.name"
-                    :types="pokeObject.types"
-                />
-            </div>
-        </div>
-        <div v-else>
-            <div class="not_found">
-                <p>pokemons not found</p>
-            </div>
-        </div>
+        <pagination>
+            <template #data="{ pageNumber }">
+                <div v-if="pokemonsFiltered.length">
+                    <div class="cards_pokemons">
+                        <PokemonCard
+                            v-for="pokeObject in pokemonsFiltered.slice((pageNumber - 1) * 6, pageNumber * 6)"
+                            :key="stringIdToInteger(pokeObject.id)"
+                            :id="pokeObject.id"
+                            :name="pokeObject.name"
+                            :types="pokeObject.types"
+                        />
+                    </div>
+                </div>
+                <div v-else>
+                    <div class="not_found">
+                        <p>pokemons not found</p>
+                    </div>
+                </div>
+            </template>
+        </pagination>
     </div>
 </template>
 <script>
 import PokemonCard from '@/components/PokemonCard.vue';
+import Pagination from './Pagination.vue';
 export default {
     name: 'PokemonList',
     data() {
@@ -28,7 +33,8 @@ export default {
         }
     },
     components: {
-        PokemonCard
+        PokemonCard,
+        Pagination
     },
     methods: {
         stringIdToInteger(id) {
