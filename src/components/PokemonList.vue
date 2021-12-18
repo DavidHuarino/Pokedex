@@ -1,6 +1,6 @@
 <template>
     <div>
-        <pagination>
+        <pagination :pokemonSize="pokemonsFiltered.length">
             <template #data="{ pageNumber }">
                 <div v-if="pokemonsFiltered.length">
                     <div class="cards_pokemons">

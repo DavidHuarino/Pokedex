@@ -20,7 +20,8 @@ const store = new Vuex.Store({
             commit('setPokemons', data);
         },
         getSearchPokemons({ commit }, searchPokemon) {
-            commit('setSearchPokemon', searchPokemon);
+            let searchLowerCase = searchPokemon.toLowerCase();
+            commit('setSearchPokemon', searchLowerCase);
         }
     },
     getters: {
@@ -38,6 +39,9 @@ const store = new Vuex.Store({
             let idString = id.toString();
             return state.pokemons.find(pokeData => pokeData.id === idString.padStart(3, '0'));
         },
+        getPokemonSearchPokemon(state) {
+            return state.searchPokemonByName;
+        }
     }
 });
 store.dispatch('getPokemons', json);

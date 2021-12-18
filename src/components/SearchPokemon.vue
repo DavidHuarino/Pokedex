@@ -12,6 +12,10 @@
 <script>
 export default {
     name: 'SearchPokemon',
+    data() {
+        return {
+        }
+    },
     computed: {
         filter: {
             get() {
@@ -19,9 +23,25 @@ export default {
             },
             set(val) {
                 this.$store.dispatch('getSearchPokemons', val);
+                // console.log("he cambiado aqui", val, this.$route.query);
+                this.$router.push({ path: this.$route.path, query: {
+                    ...this.$route.query,
+                    orgName: val,
+                    pageNumber: 1
+                } });
             }
+        },
+        searchPokemon() {
+            return this.$store.getters.getPokemonSearchPokemon;
         }
-    }
+    },
+    // watch: {
+    //     searchPokemon(newOrgName) {
+    //         this.$router.push({ path: this.$route.path, query: {
+    //             orgName: newOrgName
+    //         } });
+    //     }
+    // }
 }
 </script>
 
@@ -52,5 +72,17 @@ export default {
         padding: 10px 20px;
         border-radius: 3px;
         font-size: 14px;
+        border: 0;
+    }
+    @media screen and (max-width: 768px) {
+        .box_img {
+            width: 120px;
+        }
+        .container-search {
+            flex-direction: column;
+        }
+        .input_search {
+            width: 90%;
+        }
     }
 </style>

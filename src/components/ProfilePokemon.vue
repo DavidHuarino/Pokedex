@@ -82,7 +82,7 @@
             <div class="prev_next_evolution">
                 <div class="container_evolution">
                     <h4>Prev Evolution</h4>
-                    <div class="card_prev_evolution" v-if="dataPokemon.previous_evolution">
+                    <div class="card_prev_evolution" v-if="dataPokemon.previous_evolution && dataPokemon.previous_evolution[0].id <= 151">
                         <div class="box_img">
                             <img :src="require(`../assets/pokemons/${ prevPokemon.id }.png`)" alt="">
                         </div>
@@ -96,7 +96,7 @@
                 </div>
                 <div class="container_evolution">
                     <h4>Next Evolution</h4>
-                    <div class="card_prev_evolution" v-if="dataPokemon.next_evolution">
+                    <div class="card_prev_evolution" v-if="dataPokemon.next_evolution && dataPokemon.next_evolution[0].id <= 151">
                         <div class="box_img">
                             <img :src="require(`../assets/pokemons/${ nextPokemon.id }.png`)" alt="">
                         </div>
@@ -147,9 +147,8 @@ export default {
             });
         },
         loadHomePokemon() {
-            this.$router.push({
-                name: 'Home'
-            });
+            this.$router.push({ name: 'Home'});
+            this.$store.dispatch('getSearchPokemons', '');
         }
     },
     computed: {
@@ -335,18 +334,20 @@ export default {
         font-size: 14px;
         border: 2px solid transparent;
         cursor: pointer;
-        background: #2978b5;
+        background: #39A2DB;
         color: #fff;
         border-radius: 3px;
     }
     .main_profile .buttons_routes button:hover {
-        background: white;
-        color: #2978b5;
-        border: 2px solid #2978b5;
+        background: #053742;
     }
 
     /*  media queries */
     @media screen and (max-width: 768px) {
+        .main_profile {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
         .main_profile .container_details .container_features {
             flex-direction: column;
         }
@@ -380,11 +381,18 @@ export default {
         .main_profile .weaknesses_pokemon .container_grid_weaknesses {
             grid-template-columns: repeat(6, 1fr);
         }
+        .main_profile .buttons_routes button:hover {
+            background: #39A2DB;
+            color: white;
+        }
     }
     @media screen and (max-width: 510px) {
+        
         .main_profile {
             flex-direction: column;
-            margin: 50px;
+            width: 100%;
+            border-radius: 0px;
+            margin: 0px;
         }
         .main_profile .container_avatar_pokemon {
             width: 60%;
