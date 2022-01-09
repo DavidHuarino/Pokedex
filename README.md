@@ -1,4 +1,5 @@
-# pokeapi
+# Vue - Pokedex
+A basic pokedex implementation with a VueJS.
 
 ## Demo
 [Live Demo - Netlify](https://stupefied-knuth-af7c30.netlify.app)
