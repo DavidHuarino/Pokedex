@@ -1,5 +1,8 @@
 # pokeapi
 
+## Demo
+[Live Demo - Netlify](https://stupefied-knuth-af7c30.netlify.app)
+
 ## Project setup
 ```
 npm install
