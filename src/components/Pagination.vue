@@ -2,9 +2,6 @@
     <div>
         <slot name="data" :pageNumber="pageNumber" />
         <div v-if="pokemonSize > 0" class="row_pagination">
-            <!-- <span>
-                <button>Previous</button>
-            </span> -->
             <button class="direction_left_button" @click="changePageNumber(pageNumber - 1)" :disabled="pageNumber <= 1">
                 Previous
             </button>
@@ -19,11 +16,6 @@
             <button class="direction_right_button" @click="changePageNumber(pageNumber + 1)" :class="{ 'direction_right' : pageNumber === numberPages }" :disabled="pageNumber >= numberPages">
                 Next
             </button>
-            <!-- <span>
-                <button>
-                    Next page
-                </button>
-            </span> -->
         </div>
     </div>
 </template>
@@ -41,7 +33,6 @@ export default {
             perPage: 6,
             pageNumber: null,
             paginationSize: 5,
-            // numberPages: 4
         }
     },
     watch: {
@@ -137,7 +128,6 @@ export default {
     }
     .numberPage_pokemon:nth-child(n + 1) {
         margin-left: -1px;
-        /* border-right: 0; */
     }
     .direction_right_button {
         padding: 4px;

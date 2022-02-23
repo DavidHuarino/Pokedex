@@ -56,9 +56,6 @@ export default {
         font-weight: 400;
         margin-bottom: 5px;
     }
-    /* .card_pokemon img {
-        width: 100%;
-    } */
     .container_type_pokemon {
         display: flex;
         justify-content: space-evenly;

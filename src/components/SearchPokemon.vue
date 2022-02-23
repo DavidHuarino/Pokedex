@@ -23,7 +23,6 @@ export default {
             },
             set(val) {
                 this.$store.dispatch('getSearchPokemons', val);
-                // console.log("he cambiado aqui", val, this.$route.query);
                 this.$router.push({ path: this.$route.path, query: {
                     ...this.$route.query,
                     orgName: val,
@@ -35,13 +34,6 @@ export default {
             return this.$store.getters.getPokemonSearchPokemon;
         }
     },
-    // watch: {
-    //     searchPokemon(newOrgName) {
-    //         this.$router.push({ path: this.$route.path, query: {
-    //             orgName: newOrgName
-    //         } });
-    //     }
-    // }
 }
 </script>
 

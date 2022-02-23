@@ -29,7 +29,6 @@ export default {
     name: 'PokemonList',
     data() {
         return {
-            // urlImages: 'https://pokeres.bastionbot.org/images/pokemon/'
         }
     },
     components: {
